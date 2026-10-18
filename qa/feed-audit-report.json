@@ -1,0 +1,48 @@
+{
+  "total_remaining": 33,
+  "translated": 13,
+  "deleted": 0,
+  "still_empty": 0,
+  "still_english": 0,
+  "already_chinese_or_mixed": 20,
+  "ids": {
+    "deleted": [],
+    "translated": [
+      "2dc888c3c7b38441490e",
+      "2be64e405b36d53e80cc",
+      "bf42dac0a35e03899035",
+      "633001b74fe1894f3731",
+      "a58c3f0d3bb33f7ebfb5",
+      "41e1564d7faa33bb6c50",
+      "81c24a25f371bd89101a",
+      "48b69a755b9b62b76371",
+      "3a0abfaa7efcfb8b300a",
+      "c793bc3301581511333e",
+      "0082157213149063e752",
+      "81123421e71b811b9054",
+      "500c7e5eb4833a8723f6"
+    ],
+    "skipped_zh": [
+      "fccb928be17fedcc4487",
+      "c0c824dd2371f3df89a8",
+      "899a66c9af8efeba782c",
+      "e13b8487a394cff2421d",
+      "579c2f6f73402080b37c",
+      "eabb63fb402fba696a32",
+      "241d8cc158b9593cc225",
+      "def169edba35050ad94d",
+      "eeab552bf79e93930521",
+      "cfc4393afe2bb00c4ac7",
+      "a2dc997beb94d1cb04b0",
+      "3f1af05b948c6e856813",
+      "6321ba541c7018c42031",
+      "49118ada4d6ce8d114fd",
+      "d12d135ab1a7fbab6475",
+      "47788cf9425acd59092b",
+      "3bf9dbe9fc4b396947d0",
+      "f0f280b1ae3d848f09b2",
+      "dd3aef74fbd2753f775d",
+      "49f5bc7536dee5aedd8d"
+    ]
+  }
+}

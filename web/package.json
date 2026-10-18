@@ -15,11 +15,14 @@
     "@capacitor/android": "^6.2.2",
     "@capacitor/cli": "^6.2.2",
     "@capacitor/core": "^6.2.2",
+    "epubjs": "^0.3.93",
+    "framer-motion": "^14.3.0",
     "idb": "^8.0.3",
     "jszip": "^3.10.1",
     "lucide-react": "^0.468.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-reader": "^2.0.15"
   },
   "devDependencies": {
     "@types/react": "^19.0.0",

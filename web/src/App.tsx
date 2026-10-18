@@ -2,6 +2,8 @@ import { useCallback, useEffect, useRef, useState, type ChangeEvent, type ReactN
 import { ArrowDownToLine, ArrowLeft, ArrowRight, BookOpen, Bookmark, Check, ChevronDown, ChevronRight, CircleHelp, FileText, Highlighter, Library, List, LoaderCircle, Moon, Plus, Quote, RefreshCw, Rss, Search, Sun, Trash2, Type, Upload, X } from 'lucide-react'
 import { articleContent, dateLabel, loadFeed, safeUrl, sourceNames, type Article, type Feed } from './lib/data'
 import { importEpub, storage, type Book, type Excerpt } from './lib/storage'
+import { SwipeDeck } from './components/SwipeDeck'
+import { NovelReader } from './components/NovelReader'
 
 type Tab = 'subscriptions' | 'bookshelf' | 'excerpts'
 const labels: Record<Tab, string> = { subscriptions: '订阅', bookshelf: '书架', excerpts: '摘录' }
@@ -39,6 +41,7 @@ export default function App() {
   const [query, setQuery] = useState('')
   const [onlySaved, setOnlySaved] = useState(false)
   const [saved, setSaved] = usePreference<string[]>('anthreed-saved-v1', [])
+  const [dismissed, setDismissed] = usePreference<string[]>('anthreed-dismissed-v1', [])
   const [read, setRead] = usePreference<string[]>('anthreed-read-v1', [])
   const [theme, setTheme] = usePreference<'light' | 'dark'>('anthreed-theme-v1', 'light')
   const [fontSize, setFontSize] = usePreference<number>('anthreed-font-size-v1', 18)
@@ -103,15 +106,14 @@ export default function App() {
         {feed && <div className="selection-note"><span>{feed.from_cache ? '正在阅读离线缓存' : feed.data_warning ? '云端暂不可用，正在阅读本地订阅' : feed.selection_stale ? '选稿暂不可用，保留上次已选文章' : feed.selection_mode === 'deepseek' ? '同一事件，只读最值得的一篇' : feed.selection_mode === 'local_fallback' ? '本次使用本地去重，选稿服务暂不可用' : '同一事件，只读一篇'}</span><button onClick={() => statusDialog.current?.showModal()} aria-label="查看选稿与来源状态"><CircleHelp size={13} /></button></div>}
         {loadError && <div className="empty-state compact"><FileText size={30} /><h2>订阅暂时没有送达</h2><p>{loadError}</p><button className="primary-button" onClick={() => void refreshFeed()}>再试一次</button></div>}
         {loading && !feed && <div className="loading-state"><LoaderCircle className="spin" size={24} /><p>正在打开你的阅读空间…</p></div>}
-        <div className="article-list">{visible.map((item, index) => <article key={item.cluster_id} data-cluster-id={item.cluster_id} className={`article-card ${index === 0 ? 'featured' : ''} ${read.includes(item.id) ? 'was-read' : ''}`}>
-          {index === 0 && <div className="featured-label"><span>从这一篇开始</span><span className="reading-time">{articleContent(item) ? `约 ${Math.max(1, Math.ceil(articleContent(item).length / 400))} 分钟` : '正文待同步'}</span></div>}
-          <div className="article-card-top"><SourceLine article={item} /><IconButton label={saved.includes(item.id) ? '取消收藏' : '收藏文章'} active={saved.includes(item.id)} onClick={() => toggleSave(item.id)}><Bookmark size={17} strokeWidth={1.5} fill={saved.includes(item.id) ? 'currentColor' : 'none'} /></IconButton></div>
-          <a className="article-link" href={`#article/${item.id}`}><h2>{item.title}</h2><p>{item.summary}</p></a>
-          <div className="article-card-bottom"><span className="article-kind">{articleContent(item) ? '全文阅读' : '正文待同步'}{read.includes(item.id) ? ' · 已读' : ''}</span><a href={`#article/${item.id}`} className="read-link" aria-label={`阅读 ${item.title}`}>阅读<ArrowRight size={15} /></a></div>
-          <Coverage article={item} />
-        </article>)}</div>
-        {!loading && !loadError && !visible.length && <div className="empty-state compact"><Bookmark size={32} strokeWidth={1.2} /><h2>{onlySaved ? '留住下一篇好文章' : '这里暂时安静'}</h2><p>{onlySaved ? '点一下文章旁的书签，随时回来读。' : '试试其他来源，或重新读取订阅。'}</p></div>}
-        {visible.length > 0 && <p className="end-note">读到这里，就很好。<span>— Anthreed</span></p>}
+        {!loading && !loadError && visible.length > 0 && (
+          <SwipeDeck
+            articles={visible}
+            dismissed={dismissed}
+            onDismiss={(id) => setDismissed(current => current.includes(id) ? current : [...current, id])}
+            onOpen={(id) => navigate(`article/${id}`)}
+          />
+        )}
       </>}
       {tab === 'bookshelf' && <>
         <div className="page-heading"><div><p className="eyebrow">A ROOM FOR YOUR BOOKS</p><h1>书架</h1><p className="page-description">把时间，留给想读的书。</p></div><button className="square-add" aria-label="导入 EPUB" disabled={importing} onClick={() => fileInput.current?.click()}>{importing ? <LoaderCircle className="spin" size={21} /> : <Plus size={23} />}</button></div>
@@ -127,8 +129,8 @@ export default function App() {
         {!excerpts.length ? <div className="empty-state excerpts-empty"><span className="large-quote" aria-hidden="true">“</span><h2>让触动你的文字，留下来。</h2><p>阅读时选中一句话，保存到摘录。<br />以后，还能回到那一页。</p><button className="secondary-button" onClick={() => navigate('subscriptions')}>去读一篇文章<ArrowRight size={16} /></button></div> : <div className="excerpt-list">{excerpts.map(item => <article className="excerpt-card" key={item.id}><Quote size={21} strokeWidth={1.2} /><blockquote>{item.text}</blockquote><button className="excerpt-origin" onClick={() => navigate(item.articleId ? `article/${item.articleId}` : `book/${item.bookId}`)}><span>{item.title}</span><ChevronRight size={14} /></button><div className="excerpt-bottom"><span>{item.source} · {dateLabel(new Date(item.createdAt).toISOString())}</span><IconButton label="删除这条摘录" onClick={() => { void storage.deleteExcerpt(item.id).then(refreshLocal).catch(() => notify('删除失败，请重试。')) }}><Trash2 size={14} /></IconButton></div></article>)}</div>}
       </>}
     </main>}
-    {first === 'article' && (article ? <ArticleReader key={article.id} article={article} onBack={() => navigate('subscriptions')} fontSize={fontSize} onFont={() => setFontSize(fontSize >= 24 ? 16 : fontSize + 2)} themeButton={themeButton} saved={saved.includes(article.id)} onSave={() => toggleSave(article.id)} onExcerpt={text => void saveExcerpt(text, { title: article.title, source: sourceNames[article.source], articleId: article.id })} /> : <div className="empty-state"><p>{loading ? '正在打开文章…' : '这篇文章暂不在当前订阅中。'}</p><button className="text-button" onClick={() => navigate('subscriptions')}>返回订阅</button></div>)}
-    {first === 'book' && (book ? <BookReader key={book.id} book={book} fontSize={fontSize} onFont={() => setFontSize(fontSize >= 24 ? 16 : fontSize + 2)} themeButton={themeButton} onBack={() => { void refreshLocal(); navigate('bookshelf') }} onExcerpt={(text, chapter) => void saveExcerpt(text, { title: book.title, source: book.author, bookId: book.id, chapter })} notify={notify} /> : <div className="empty-state"><p>正在查找这台设备上的书籍…</p><button className="text-button" onClick={() => navigate('bookshelf')}>返回书架</button></div>)}
+    {first === 'article' && (article ? <div className="article-expand"><ArticleReader key={article.id} article={article} onBack={() => navigate('subscriptions')} fontSize={fontSize} onFont={() => setFontSize(fontSize >= 24 ? 16 : fontSize + 2)} themeButton={themeButton} saved={saved.includes(article.id)} onSave={() => toggleSave(article.id)} onExcerpt={text => void saveExcerpt(text, { title: article.title, source: sourceNames[article.source], articleId: article.id })} /></div> : <div className="empty-state"><p>{loading ? '正在打开文章…' : '这篇文章暂不在当前订阅中。'}</p><button className="text-button" onClick={() => navigate('subscriptions')}>返回订阅</button></div>)}
+    {first === 'book' && (book ? <NovelReader key={book.id} book={book} theme={theme} onToggleTheme={() => setTheme(theme === 'light' ? 'dark' : 'light')} onBack={() => { void refreshLocal(); navigate('bookshelf') }} onExcerpt={(text) => void saveExcerpt(text, { title: book.title, source: book.author, bookId: book.id })} notify={notify} /> : <div className="empty-state"><p>正在查找这台设备上的书籍…</p><button className="text-button" onClick={() => navigate('bookshelf')}>返回书架</button></div>)}
     {!reading && <nav className="bottom-nav" aria-label="主导航">{(Object.keys(labels) as Tab[]).map(item => { const Icon = icons[item]; return <a key={item} href={`#${item}`} aria-current={tab === item ? 'page' : undefined} className={tab === item ? 'selected' : ''} onClick={() => setQuery('')}><span className="nav-icon"><Icon size={21} strokeWidth={tab === item ? 2 : 1.5} /></span><span>{labels[item]}</span></a> })}</nav>}
     <dialog ref={statusDialog} className="status-dialog" onClick={event => { if (event.target === statusDialog.current) statusDialog.current.close() }}><div className="dialog-heading"><h2>阅读空间</h2><IconButton label="关闭数据状态" onClick={() => statusDialog.current?.close()}><X size={19} /></IconButton></div><p className="page-description">订阅与选稿状态</p>{feed && <><div className="selection-stats"><span><strong>{feed.input_count}</strong>篇来源文章</span><ArrowRight size={20} /><span><strong>{feed.articles.length}</strong>个独立事件</span></div><p className="status-explanation">{feed.selection_mode === 'deepseek' ? 'DeepSeek 按事件合并报道，每组保留一篇，并记录选稿理由。' : feed.selection_mode === 'local_fallback' ? '本轮模型服务不可用，使用本地标题相似度去重。' : '每个事件保留一篇文章，选稿状态暂未同步。'}</p>{feed.data_warning && <p className="status-explanation" role="status">{feed.data_warning}</p>}{feed.sources.map(item => <div className="status-source" key={item.id}><SourceMark source={item.id} /><div><strong>{item.name}</strong><p>{item.method || '来源暂不可用'} · {item.count} 篇</p>{item.note && <p>{item.note}</p>}</div><span className={`status-badge ${item.status === 'ok' ? 'ok' : ''}`}>{item.status === 'ok' ? '已更新' : item.status === 'cached' ? '已缓存' : '未连接'}</span></div>)}<p className="update-time">数据生成于 {new Date(feed.generated_at).toLocaleString('zh-CN', { hour12: false })}</p></>}<div className="dialog-footer"><p>{feed?.data_origin === 'supabase' ? '订阅已从云端同步。' : feed?.from_cache ? '正在显示这台设备保存的订阅。' : '正在显示本地订阅。'}<br />书架和摘录保存在这台设备。</p><button className="secondary-button" onClick={() => { void refreshFeed(); statusDialog.current?.close() }}><RefreshCw size={15} />重新读取</button></div></dialog>
     {toast && <div className="toast" role="status"><Check size={16} /><span>{toast}</span></div>}
@@ -149,38 +151,4 @@ function ArticleReader({ article, onBack, fontSize, onFont, themeButton, saved, 
       {(body || article.summary?.trim()) && <button className="excerpt-action" onPointerDown={event => event.preventDefault()} onClick={() => onExcerpt(body ? selection : article.summary)}><Highlighter size={17} />{body ? '摘录选中文字' : '保存这段摘要到摘录'}</button>}<p className="reading-footnote">内容版权归原作者所有 · 保留每一份思考的出处</p>
     </main>
   </>
-}
-
-function BookReader({ book, onBack, fontSize, onFont, themeButton, onExcerpt, notify }: {
-  book: Book; onBack: () => void; fontSize: number; onFont: () => void; themeButton: ReactNode; onExcerpt: (text: string, chapter: number) => void; notify: (text: string) => void
-}) {
-  const [chapter, setChapter] = useState(Math.min(book.chapter, book.chapters.length - 1))
-  const [toc, setToc] = useState(false)
-  const [progress, setProgress] = useState(book.progress)
-  const bodyRef = useRef<HTMLDivElement>(null)
-  const lastPosition = useRef({ chapter: book.chapter, offset: book.offset, progress: book.progress })
-  const content = book.chapters[chapter]
-  useEffect(() => {
-    let timer: ReturnType<typeof setTimeout>
-    let restored = false
-    const save = () => { void storage.updateBook(book.id, { ...lastPosition.current, openedAt: Date.now() }).catch(() => notify('阅读进度未能保存，请检查本机存储。')) }
-    const onScroll = () => {
-      if (!restored) return
-      const height = document.documentElement.scrollHeight - innerHeight
-      const offset = height > 0 ? Math.min(1, Math.max(0, scrollY / height)) : 0
-      const progress = Math.min(1, (chapter + offset) / book.chapters.length)
-      lastPosition.current = { chapter, offset, progress }; setProgress(progress)
-      clearTimeout(timer); timer = setTimeout(save, 350)
-    }
-    const restore = requestAnimationFrame(() => requestAnimationFrame(() => {
-      const offset = chapter === lastPosition.current.chapter ? lastPosition.current.offset : 0
-      scrollTo(0, offset * Math.max(0, document.documentElement.scrollHeight - innerHeight))
-      restored = true; onScroll()
-    }))
-    addEventListener('scroll', onScroll, { passive: true }); addEventListener('pagehide', save)
-    return () => { cancelAnimationFrame(restore); clearTimeout(timer); removeEventListener('scroll', onScroll); removeEventListener('pagehide', save); save() }
-  }, [book.id, book.chapters.length, chapter, notify])
-  return <><header className="reader-toolbar"><button className="back-button" onClick={() => { void storage.updateBook(book.id, { ...lastPosition.current, openedAt: Date.now() }).then(onBack).catch(() => notify('进度保存失败，请重试。')) }}><ArrowLeft size={19} />书架</button><span className="reader-book-title">{book.title}</span><div className="header-actions"><IconButton label="切换目录" active={toc} onClick={() => setToc(!toc)}><List size={19} /></IconButton><IconButton label={`调整字号，当前 ${fontSize}`} onClick={onFont}><Type size={19} /></IconButton>{themeButton}</div></header>
-    {toc && <aside className="chapter-list"><h2>目录</h2>{book.chapters.map((item, index) => <button className={chapter === index ? 'selected' : ''} key={index} onClick={() => { setChapter(index); setToc(false) }}><span>{String(index + 1).padStart(2, '0')}</span>{item.title}<ChevronRight size={15} /></button>)}</aside>}
-    <main className="reading-content book-reading"><div className="reader-kicker"><span>第 {chapter + 1} / {book.chapters.length} 章</span><span>本机续读</span></div><h1>{content.title}</h1><p className="book-reader-author">{book.author}</p><div ref={bodyRef} className="reading-body" style={{ fontSize }}>{content.blocks.map((block, index) => block.type === 'heading' ? (index === 0 ? null : <h2 key={index}>{block.text}</h2>) : <p key={index}>{block.text}</p>)}</div><div className="reading-end-mark" aria-hidden="true">◇</div><button className="excerpt-action" onPointerDown={event => event.preventDefault()} onClick={() => { const selection = window.getSelection(); onExcerpt(selection && bodyRef.current?.contains(selection.anchorNode) && bodyRef.current?.contains(selection.focusNode) ? selection.toString() : '', chapter) }}><Highlighter size={17} />摘录选中文字</button><div className="chapter-controls"><button disabled={!chapter} onClick={() => setChapter(chapter - 1)}><ArrowLeft size={17} />上一章</button><span>{chapter + 1} / {book.chapters.length}</span><button disabled={chapter === book.chapters.length - 1} onClick={() => setChapter(chapter + 1)}>下一章<ArrowRight size={17} /></button></div><p className="reading-footnote">文字阅读预览 · 支持常规 EPUB，图片与复杂版式待后续完善</p></main><footer className="reader-progress"><span style={{ width: `${progress * 100}%` }} /><p>阅读进度 {Math.round(progress * 100)}%<span><Check size={12} />自动保存在本机</span></p></footer></>
 }

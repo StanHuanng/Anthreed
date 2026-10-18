@@ -1,0 +1,17 @@
+You are implementing the Anthreed UI rebuild. Read and follow every requirement in:
+
+/workspace/Anthreed/qa/briefs/swipe-reader-rebuild.md
+
+Also read:
+- /workspace/design/open-claude-ui/AGENTS.md (CDS rules)
+- /workspace/Anthreed/web/src/App.tsx (current UI — refactor, don't throw away data layer)
+- /workspace/Anthreed/web/src/lib/data.ts and storage.ts
+- /workspace/echo-github/src for EPUB reader patterns if helpful
+
+IMPORTANT: You may call DeepSeek via OpenCode as a sub-agent for bulk/repetitive work:
+  opencode run --model deepseek/deepseek-flash "your task"
+Sol (the user) explicitly authorized this. Prefer your own judgment for architecture, swipe physics, and reader chrome; use DeepSeek for volume boilerplate if useful.
+
+Work in /workspace/Anthreed/web. Implement C1 stacked swipe cards AND C2 Legado-style CDS novel reader. Then run `npm run build` in web/ and fix blockers until build passes.
+
+Do not rebuild APK. Do not touch .env secrets. Do not recreate Supabase.
