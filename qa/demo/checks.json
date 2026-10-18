@@ -1,0 +1,39 @@
+{
+  "passed": 27,
+  "checks": [
+    "Live DeepSeek selection is present",
+    "All three sources fetched successfully",
+    "Feed contains one winner per cluster",
+    "Rendered cards have no duplicate event IDs",
+    "Frank Ruhl Libre loads and is first in reading font stack",
+    "Mobile subscription page has no horizontal overflow",
+    "归藏 filter shows only chosen articles from that source",
+    "乔木 filter shows only chosen articles from that source",
+    "AIHOT filter shows only chosen articles from that source",
+    "Saved-article filter works",
+    "Article body identifies source summary",
+    "Article original link is valid HTTPS",
+    "Reader font size changes",
+    "EPUB file bytes and parsed chapters persist in IndexedDB",
+    "Imported EPUB survives reload",
+    "Duplicate EPUB import preserves one book",
+    "EPUB reading chapter and progress are saved",
+    "EPUB chapter and scroll position restore after reload",
+    "Saved article excerpt is listed with origin",
+    "Excerpts export as Markdown",
+    "Dark mode applies canonical CDS surface",
+    "Source status dialog opens",
+    "Source status dialog closes with Escape",
+    "Desktop feed has no horizontal overflow",
+    "Narrow 320px feed has no horizontal overflow",
+    "Feed falls back to cached winners when offline",
+    "No uncaught browser errors"
+  ],
+  "browser_errors": [],
+  "feed": {
+    "input": 40,
+    "winners": 35,
+    "mode": "deepseek"
+  },
+  "tested_at": "2026-10-18T10:54:20.912Z"
+}

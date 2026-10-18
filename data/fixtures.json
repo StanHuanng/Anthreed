@@ -1,0 +1,68 @@
+[
+  {
+    "id": "demo-agent-design",
+    "source": "guizang",
+    "title": "为 AI Agent 设计软件",
+    "summary": "探讨如何重新思考软件设计，使其更适合 AI Agent 的使用模式。从 Web 搜索到数据库查询，AI Agent 时代的软件架构需要全新的设计范式。",
+    "url": "https://www.guizang.ai/articles/ai-agent-design",
+    "published_at": "2026-03-28T00:00:00+08:00",
+    "is_fixture": true,
+    "content": null,
+    "author": "归藏"
+  },
+  {
+    "id": "demo-vibe",
+    "source": "guizang",
+    "title": "Vibe Coding 实践：从零构建产品的经验分享",
+    "summary": "使用 AI 辅助编程构建产品：工具选择、工作流优化，以及常见陷阱。",
+    "url": "https://www.guizang.ai/articles/vibe-coding-experience",
+    "published_at": "2026-03-20T00:00:00+08:00",
+    "is_fixture": true,
+    "content": null,
+    "author": "归藏"
+  },
+  {
+    "id": "demo-arc",
+    "source": "guizang",
+    "title": "ARC-AGI-3：从答题走向交互式推理",
+    "summary": "通过让 AI 在全新环境里自行探索、学习和规划，考察模型的适应能力。",
+    "url": "https://arcprize.org/",
+    "published_at": "2026-03-29T00:00:00+08:00",
+    "is_fixture": true,
+    "content": null,
+    "author": "归藏"
+  },
+  {
+    "id": "demo-interview",
+    "source": "guizang",
+    "title": "81,000 人对 AI 的期待",
+    "summary": "Anthropic 的开放访谈呈现了不同国家用户对于工作、生活与学习的期待。",
+    "url": "https://www.anthropic.com/",
+    "published_at": "2026-03-29T00:00:00+08:00",
+    "is_fixture": true,
+    "content": null,
+    "author": "归藏"
+  },
+  {
+    "id": "demo-sms",
+    "source": "qiaomu",
+    "title": "只有短信入口的 AI 助理，如何走进日常生活",
+    "summary": "乔木博客介绍 Instinct 的产品路径：通过短信、电话和邮件提供服务。",
+    "url": "https://blog.qiaomu.ai/instinct-ai-assistant-sms-growth",
+    "published_at": "2026-10-07T00:00:00+08:00",
+    "is_fixture": true,
+    "content": null,
+    "author": "向阳乔木"
+  },
+  {
+    "id": "demo-local",
+    "source": "aihot",
+    "title": "一台 RTX Spark 电脑上的本地模型实践",
+    "summary": "从统一内存到部署流程，阅读一次本地模型使用体验。",
+    "url": "https://aihot.news/",
+    "published_at": "2026-10-18T00:00:00+08:00",
+    "is_fixture": true,
+    "content": null,
+    "author": "AIHOT"
+  }
+]

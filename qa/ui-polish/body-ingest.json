@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-10-18T11:07:59.857405+00:00",
+  "selection_mode": "deepseek",
+  "input_count": 40,
+  "winners": 34,
+  "with_body": 33,
+  "body_characters": 250896,
+  "pending": [
+    {
+      "id": "1d04b0759905c78e321e",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&idx=1&mid=2647687354&sn=dea0d54dc3b71b361e36199db6cf4a86",
+      "title": "卡兹克实测37999元RTX Spark轻薄本：一周实现本地Token自由",
+      "note": "正文尚未同步：未提取到可读正文"
+    }
+  ],
+  "seeded_demo_bodies": false
+}

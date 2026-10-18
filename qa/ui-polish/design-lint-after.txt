@@ -1,0 +1,38 @@
+TASTESKILL · LINT   2 file(s)
+
+FAIL
+  [eyebrow] Eyebrow / kicker label above a heading.  (10×)
+      web/src/App.tsx:117  className="eyebrow
+      web/src/App.tsx:120  className="section-label
+      web/src/App.tsx:125  className="eyebrow
+      web/src/App.tsx:126  className="section-label
+      web/src/App.tsx:146  className="reader-kicker
+      web/src/App.tsx:185  className="reader-kicker
+      … 4 more
+  [hairline] Thin rule / divider line. Separate with space, tone or scale; lines belong to real tables and form fields.  (10×)
+      web/src/styles.css:25  border-bottom: 1px
+      web/src/styles.css:51  border-bottom: 1px
+      web/src/styles.css:82  border-top: 1px
+      web/src/styles.css:124  border-top: 1px
+      web/src/styles.css:134  border-bottom: 1px
+      web/src/styles.css:150  border-bottom: 1px
+      … 4 more
+  [shadow] Shadow. Elements at rest carry none; only real overlays (menu, dialog, sticky bar) may.  (5×)
+      web/src/styles.css:46  box-shadow:
+      web/src/styles.css:95  box-shadow:
+      web/src/styles.css:113  box-shadow:
+      web/src/styles.css:188  box-shadow:
+      web/src/styles.css:206  box-shadow:
+
+WARN
+  [numbering] Zero-padding in script. Fine for a clock, a date or a price; if it builds 01 / 02 / 03 labels, remove it.  (1×)
+      web/src/App.tsx:184  padStart(2, '0')
+  [outlined-box] A 1px outlined box. Prefer a filled surface or no box.  (5×)
+      web/src/styles.css:52  border: 1px solid
+      web/src/styles.css:102  border: 1px solid
+      web/src/styles.css:135  border: 1px solid
+      web/src/styles.css:143  border: 1px solid
+      web/src/styles.css:182  border: 1px solid
+
+RESULT: 25 FAIL, 6 WARN — fix the FAILs before rendering.
+Interface fragments marked data-ui keep their own borders and shadows. Any other line that must keep a flagged pattern for a real reason can carry the comment taste-skill-ignore.

@@ -1,0 +1,29 @@
+{
+  "passed": 12,
+  "checks": [
+    "Browser cloud requests use the anon credential",
+    "Cloud rows render and retain one article per event and URL",
+    "Cloud origin and selection mode are preserved",
+    "Cloud content renders as the inline article body",
+    "Missing view falls back to articles with body and event aliases",
+    "Cloud outage falls back to local JSON",
+    "Cloud fallback discloses the HTTP error",
+    "Cloud and JSON failure retain cached articles",
+    "An empty cloud does not hide an available local feed",
+    "Cloud reads paginate beyond 1000 rows",
+    "No cloud, JSON, or cache produces a clear recoverable error",
+    "No uncaught browser errors"
+  ],
+  "live_anon": {
+    "articles": {
+      "status": 404,
+      "count": null
+    },
+    "feed_articles": {
+      "status": 404,
+      "count": null
+    }
+  },
+  "browser_errors": [],
+  "tested_at": "2026-10-18T11:16:43.487Z"
+}

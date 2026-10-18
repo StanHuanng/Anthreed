@@ -1,0 +1,27 @@
+{
+  "local_winners": 34,
+  "local_bodies": 33,
+  "service_articles": {
+    "status": 404,
+    "count": null
+  },
+  "anon_sources": {
+    "status": 404,
+    "count": null
+  },
+  "anon_clusters": {
+    "status": 404,
+    "count": null
+  },
+  "anon_articles": {
+    "status": 404,
+    "count": null
+  },
+  "anon_feed_articles": {
+    "status": 404,
+    "count": null
+  },
+  "matched_urls": 0,
+  "matched_bodies": 0,
+  "cloud_bodies": null
+}

@@ -1,0 +1,318 @@
+{
+  "generated_at": "2026-10-18T11:19:45.323045+00:00",
+  "mode": "deepseek",
+  "clusters": [
+    {
+      "event": "为 AI Agent 设计软件",
+      "article_ids": [
+        "dd3aef74fbd2753f775d"
+      ],
+      "winner_id": "dd3aef74fbd2753f775d",
+      "reason": "单篇，AI Agent 软件设计范式探讨",
+      "id": "7916b869b1a8f4e6"
+    },
+    {
+      "event": "Vibe Coding 从零构建产品实践",
+      "article_ids": [
+        "49f5bc7536dee5aedd8d"
+      ],
+      "winner_id": "49f5bc7536dee5aedd8d",
+      "reason": "单篇，AI 辅助编程实战经验",
+      "id": "774a4bb8a757c595"
+    },
+    {
+      "event": "Instinct 短信 AI 助理年交易额近 10 亿美元",
+      "article_ids": [
+        "eabb63fb402fba696a32"
+      ],
+      "winner_id": "eabb63fb402fba696a32",
+      "reason": "单篇，独家增长与融资细节",
+      "id": "1f6c77fa60c31cce"
+    },
+    {
+      "event": "启元个人机器人 Q1/T1 发布",
+      "article_ids": [
+        "241d8cc158b9593cc225"
+      ],
+      "winner_id": "241d8cc158b9593cc225",
+      "reason": "单篇，机器人新物种产品介绍",
+      "id": "f8cac2f4013b5d3a"
+    },
+    {
+      "event": "豆包工作发布及日文 PDF 办公实测",
+      "article_ids": [
+        "def169edba35050ad94d",
+        "5d94d0d1fbab897ae9ac"
+      ],
+      "winner_id": "def169edba35050ad94d",
+      "reason": "同属豆包工作模式，实测案例更完整可读",
+      "id": "0bd35316588f64c6"
+    },
+    {
+      "event": "扣子推出桌面端并支持云盘双向同步",
+      "article_ids": [
+        "eeab552bf79e93930521"
+      ],
+      "winner_id": "eeab552bf79e93930521",
+      "reason": "单篇，扣子桌面端发布",
+      "id": "e31dc5e2422ffb9d"
+    },
+    {
+      "event": "DeepSeek Harness 发布并快速涨星",
+      "article_ids": [
+        "cfc4393afe2bb00c4ac7"
+      ],
+      "winner_id": "cfc4393afe2bb00c4ac7",
+      "reason": "单篇，DSH 发布与社区现象记录",
+      "id": "be83a781b8ee8b0a"
+    },
+    {
+      "event": "MIT 博士用物理学重写 AI 底层逻辑",
+      "article_ids": [
+        "a2dc997beb94d1cb04b0"
+      ],
+      "winner_id": "a2dc997beb94d1cb04b0",
+      "reason": "单篇，架构研究人物报道",
+      "id": "3c44b156f89f48df"
+    },
+    {
+      "event": "谷歌 Gemini 负责人 Jeff Dean 人物故事",
+      "article_ids": [
+        "3f1af05b948c6e856813"
+      ],
+      "winner_id": "3f1af05b948c6e856813",
+      "reason": "单篇，人物特写",
+      "id": "69887dbbc45ad051"
+    },
+    {
+      "event": "Every CEO 谈 AI 自动化成本与局限",
+      "article_ids": [
+        "6321ba541c7018c42031"
+      ],
+      "winner_id": "6321ba541c7018c42031",
+      "reason": "单篇，一手公司实践与观点",
+      "id": "ff702b51ce499a3c"
+    },
+    {
+      "event": "vLLM 开源项目成长为公司",
+      "article_ids": [
+        "49118ada4d6ce8d114fd"
+      ],
+      "winner_id": "49118ada4d6ce8d114fd",
+      "reason": "单篇，播客整理深度访谈",
+      "id": "cf1ac5b67b05090f"
+    },
+    {
+      "event": "基础英语 850 词语言学实验",
+      "article_ids": [
+        "d12d135ab1a7fbab6475"
+      ],
+      "winner_id": "d12d135ab1a7fbab6475",
+      "reason": "单篇，历史科普",
+      "id": "8b12ae4754bd5762"
+    },
+    {
+      "event": "产品经理读 200 篇 AI 论文的边界思考",
+      "article_ids": [
+        "47788cf9425acd59092b"
+      ],
+      "winner_id": "47788cf9425acd59092b",
+      "reason": "单篇，播客精华整理",
+      "id": "c324c2247c9106a5"
+    },
+    {
+      "event": "Sam Altman 谈算力赌注与安全",
+      "article_ids": [
+        "3bf9dbe9fc4b396947d0"
+      ],
+      "winner_id": "3bf9dbe9fc4b396947d0",
+      "reason": "单篇，Altman 访谈整理",
+      "id": "86bab26cc6381603"
+    },
+    {
+      "event": "《AI 领导力》书籍推荐",
+      "article_ids": [
+        "f0f280b1ae3d848f09b2"
+      ],
+      "winner_id": "f0f280b1ae3d848f09b2",
+      "reason": "单篇，书评",
+      "id": "8543b1df06292961"
+    },
+    {
+      "event": "华硕 ProArt 创16 RTX Spark 本地 AI 实测",
+      "article_ids": [
+        "1747478a8ae710265c07",
+        "1d04b0759905c78e321e"
+      ],
+      "winner_id": "1d04b0759905c78e321e",
+      "reason": "同一实测的完整公众号版本，内容更详实",
+      "id": "561f7a8fec54c21b"
+    },
+    {
+      "event": "DeepSeek-V4.1-Flash-1017 发布及 WorkBuddy 适配",
+      "article_ids": [
+        "09903c61b08852f54fa5",
+        "c0c824dd2371f3df89a8"
+      ],
+      "winner_id": "c0c824dd2371f3df89a8",
+      "reason": "官方发布一手信息，含价格与接入方式",
+      "id": "b40cb67f485bd822"
+    },
+    {
+      "event": "DeepSeek 开放自研搜索 API",
+      "article_ids": [
+        "899a66c9af8efeba782c"
+      ],
+      "winner_id": "899a66c9af8efeba782c",
+      "reason": "单篇，官方 API 更新",
+      "id": "651ed93080cfc97c"
+    },
+    {
+      "event": "Anthropic 报告：AI 改变内部雇佣与工作组织",
+      "article_ids": [
+        "41e1564d7faa33bb6c50"
+      ],
+      "winner_id": "41e1564d7faa33bb6c50",
+      "reason": "单篇，一手内部数据报告",
+      "id": "3d3eb235bbc66088"
+    },
+    {
+      "event": "Muse Spark Open 登顶 Code Arena WebDev 美国开源第一",
+      "article_ids": [
+        "2dc888c3c7b38441490e"
+      ],
+      "winner_id": "2dc888c3c7b38441490e",
+      "reason": "单篇，榜单成绩",
+      "id": "e5af5043fb3d6953"
+    },
+    {
+      "event": "Anthropic 调查：公众与员工对 AI 影响预期鸿沟",
+      "article_ids": [
+        "81c24a25f371bd89101a"
+      ],
+      "winner_id": "81c24a25f371bd89101a",
+      "reason": "单篇，一手调查研究",
+      "id": "e0c0f6658851af33"
+    },
+    {
+      "event": "Anthropic 用 Claude 破解 NIST ECDSA 曲线种子来源",
+      "article_ids": [
+        "48b69a755b9b62b76371"
+      ],
+      "winner_id": "48b69a755b9b62b76371",
+      "reason": "单篇，一手研究结果",
+      "id": "f4e5b87db6de66d3"
+    },
+    {
+      "event": "Google Research 展示自主湿实验室三项进展",
+      "article_ids": [
+        "633001b74fe1894f3731"
+      ],
+      "winner_id": "633001b74fe1894f3731",
+      "reason": "单篇，官方研究博客",
+      "id": "d2c9846345d4dc10"
+    },
+    {
+      "event": "Anthropic 重构 Claude Code 代码评审",
+      "article_ids": [
+        "fccb928be17fedcc4487"
+      ],
+      "winner_id": "fccb928be17fedcc4487",
+      "reason": "单篇，对官方博客的深度解读",
+      "id": "18f8810731c8f9cb"
+    },
+    {
+      "event": "Anthropic 用 Claude Mythos 5 设计高效量子电路",
+      "article_ids": [
+        "3a0abfaa7efcfb8b300a"
+      ],
+      "winner_id": "3a0abfaa7efcfb8b300a",
+      "reason": "单篇，一手研究报告",
+      "id": "a26f0485b4e5a091"
+    },
+    {
+      "event": "a16z 周报：智能体购物遭电商拦截",
+      "article_ids": [
+        "2be64e405b36d53e80cc"
+      ],
+      "winner_id": "2be64e405b36d53e80cc",
+      "reason": "单篇，数据图表分析",
+      "id": "d3fcc3f77abec04d"
+    },
+    {
+      "event": "Reflection 发布开源权重模型 Beam 及生态适配",
+      "article_ids": [
+        "adfe4f7f21f3604049b8",
+        "c793bc3301581511333e",
+        "90b44f3b90b3d8905be8",
+        "8d9a5777ced72f85104f"
+      ],
+      "winner_id": "c793bc3301581511333e",
+      "reason": "第三方权威评测，含横向对比得分",
+      "id": "aa48146bc8893237"
+    },
+    {
+      "event": "Waymo 宣布进军多伦多",
+      "article_ids": [
+        "bf42dac0a35e03899035"
+      ],
+      "winner_id": "bf42dac0a35e03899035",
+      "reason": "单篇，官方公告",
+      "id": "5ce00322f2f6a8fd"
+    },
+    {
+      "event": "中国拟在出口技术目录增列 23 项 AI 技术",
+      "article_ids": [
+        "e13b8487a394cff2421d"
+      ],
+      "winner_id": "e13b8487a394cff2421d",
+      "reason": "单篇，政策新闻",
+      "id": "2f58334325241b19"
+    },
+    {
+      "event": "PromptArmor 研究：开放权重模型更易受间接提示词注入",
+      "article_ids": [
+        "a58c3f0d3bb33f7ebfb5"
+      ],
+      "winner_id": "a58c3f0d3bb33f7ebfb5",
+      "reason": "单篇，一手安全评测",
+      "id": "6f05fca0235a2054"
+    },
+    {
+      "event": "丹麦最高法院裁定 AI 生成儿童色情内容可判实刑",
+      "article_ids": [
+        "579c2f6f73402080b37c"
+      ],
+      "winner_id": "579c2f6f73402080b37c",
+      "reason": "单篇，司法判例报道",
+      "id": "0bc38c941bba7d20"
+    },
+    {
+      "event": "OpenAI 失准报告：模型绕过政府统计网站授权获取服务器机密",
+      "article_ids": [
+        "0082157213149063e752"
+      ],
+      "winner_id": "0082157213149063e752",
+      "reason": "单篇，独立安全事件一手报告",
+      "id": "10802ba8fff9aeb8"
+    },
+    {
+      "event": "OpenAI 失准报告：模型在 dashboard 评测中修改内部系统",
+      "article_ids": [
+        "81123421e71b811b9054"
+      ],
+      "winner_id": "81123421e71b811b9054",
+      "reason": "单篇，独立安全事件一手报告",
+      "id": "c85d9886cde1c049"
+    },
+    {
+      "event": "OpenAI 失准报告：模型未经授权动用测试网钱包资金",
+      "article_ids": [
+        "500c7e5eb4833a8723f6"
+      ],
+      "winner_id": "500c7e5eb4833a8723f6",
+      "reason": "单篇，独立安全事件一手报告",
+      "id": "7810b01e16899615"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+Skip to content
+Back to organization home
+1psum
+FREE
+New project
+Feedback
+
+Search...
+
+Ctrl K
+Help
+Advisor Center
+Create a new project
+
+Your project will have its own dedicated instance and full Postgres database. An API will be set up so you can easily interact with your new database.
+
+Organization
+1psum
+FREE
+1psumFree
+GitHub (optional)
+Connect GitHub
+Ideal for agent-first workflows. Update your schema in code and push it to GitHub. Supabase deploys the changes. Learn more
+Project name
+Database password
+Copy
+
+This password is strong. Generate a password.
+
+Region
+Asia-Pacific
+Americas
+Europe
+Asia-PacificRecommended
+
+Need a specific region?
+
+Security
+Enable Data API
+Autogenerate a RESTful API for your public schema. Recommended if using a client library like supabase-js.
+Automatically expose new tables
+Grants privileges to Data API roles by default, exposing new tables.
+We recommend disabling this to control access manually.
+Enable automatic RLS
+Create an event trigger that automatically enables Row Level Security on all new tables in the public schema.
+ADVANCED CONFIGURATION
+Cancel
+Create new project
+
+New Project | Supabase

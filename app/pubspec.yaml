@@ -1,0 +1,52 @@
+name: anthropo_reader
+description: A beautiful information aggregation app with GitHub Trending and WeChat articles.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # UI & Theming
+  google_fonts: ^6.1.0
+  flutter_svg: ^2.0.9
+
+  # Markdown Rendering
+  flutter_markdown: ^0.6.18
+  markdown: ^7.1.1
+
+  # State Management
+  provider: ^6.1.1
+
+  # Data Layer
+  supabase_flutter: ^2.3.4
+  http: ^1.2.0
+
+  # Utilities
+  intl: ^0.19.0
+  cached_network_image: ^3.3.1
+  shared_preferences: ^2.2.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+  flutter_launcher_icons: ^0.14.3
+
+# App 图标配置
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/app_icon.png"
+  adaptive_icon_background: "#F5F0E6"  # 羊皮纸背景色
+  adaptive_icon_foreground: "assets/icons/app_icon.png"
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/textures/
+    - assets/icons/

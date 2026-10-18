@@ -1,0 +1,55 @@
+Skip to content
+Back to organization home
+1psum
+FREE
+Feedback
+
+Search...
+
+Ctrl K
+Help
+Advisor Center
+Projects
+Team
+Integrations
+Usage
+Billing
+Organization Settings
+Projects
+Status
+Sorted by name
+Toggle grid view
+Toggle list view
+New project
+Create a project
+
+Launch a complete backend built on Postgres.
+
+New project
+Free plan usage
+
+Current billing cycle
+
+Upgrade to Pro
+Egress
+0 / 5 GB
+Database size
+0 / 500 MB
+Monthly active users
+0 / 50,000
+File storage
+0 / 1 GB
+Log Ingestion
+0 / 1 GB
+Log Query
+0 / 100 GB
+NOTICE
+
+We’ve updated our Terms of Service
+
+The new terms cover who you contract with, alpha and beta features, and cloud marketplace purchases.
+
+Learn more
+You do not have access to this project
+
+Projects | Supabase

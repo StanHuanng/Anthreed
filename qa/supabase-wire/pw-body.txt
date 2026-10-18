@@ -1,0 +1,20 @@
+Documentation
+Welcome back
+Sign in to your account
+Continue with GitHub
+Continue with ChatGPT
+Continue with SSO
+or
+Email
+Password
+Forgot password?
+Sign in
+Don’t have an account? Sign up
+
+By continuing, you agree to Supabase’s Terms of Service and Privacy Policy, and to receive periodic emails with updates.
+
+“
+Holy crap. @supabase is absolutely incredible. Most elegant backend as a service I've ever used. This is a dream.
+@KenTheRogers
+
+Supabase
